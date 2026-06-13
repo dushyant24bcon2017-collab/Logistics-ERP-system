@@ -20,7 +20,7 @@ const sidebar = () => {
 const decodedToken = token ? jwtDecode<DecodedToken>(token) : null;
 const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/login'); 
+    navigate('/'); 
   };
   
   return <>
