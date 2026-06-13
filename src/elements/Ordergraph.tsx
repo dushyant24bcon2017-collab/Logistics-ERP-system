@@ -6,6 +6,7 @@ import { ChartContainer,
   import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
   import { Button,  } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
+import { API_BASE_URL } from '@/config'
  
 const Ordergraph = () => {
     const token = localStorage.getItem('token')
@@ -21,7 +22,7 @@ const Ordergraph = () => {
     useEffect(()=>{
         try {
             const getOrders = async()=>{
-                const response = await fetch('http://localhost:5000/analytics',{
+                const response = await fetch(API_BASE_URL + '/analytics',{
                     headers: {
                 "Authorization": `Bearer ${token}`, 
                 "Content-Type": "application/json"

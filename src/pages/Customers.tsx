@@ -16,6 +16,7 @@ import {
 import { columncustomers } from "@/datatables/Columncustomers"
 import type { Customer } from "@/datatables/Columncustomers"
 import { Input } from "@/components/ui/input"
+import { API_BASE_URL } from "@/config"
 
 const Customers = () => {
   // state
@@ -32,7 +33,7 @@ const Customers = () => {
 //get customer 
   const fetchCustomers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/customer", { // Endpoint apne hisaab se check kar lena
+      const res = await fetch(API_BASE_URL + "/customer", { // Endpoint apne hisaab se check kar lena
         headers: {
           "Authorization": `bearer ${token}`,
           "Content-Type": "application/json"
@@ -59,7 +60,7 @@ const Customers = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/customer", {
+      const res = await fetch(API_BASE_URL + "/customer", {
         method: "POST",
         headers: {
           "Authorization": `bearer ${token}`,
@@ -88,7 +89,7 @@ const Customers = () => {
     if (!confirmDelete) return
 
     try {
-      const res = await fetch(`http://localhost:5000/customer/${id}`, {
+      const res = await fetch(API_BASE_URL + `/customer/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `bearer ${token}`,

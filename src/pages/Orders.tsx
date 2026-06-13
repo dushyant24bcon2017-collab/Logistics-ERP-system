@@ -28,6 +28,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useFetchProducts } from "@/customHooks/getProducts"
+import { API_BASE_URL } from "@/config"
 
 
 const Orders = () => {
@@ -54,7 +55,7 @@ const {product} = useFetchProducts()
 
   const getOrders = async()=>{
     try {
-      const res = await fetch("http://localhost:5000/orders",{
+      const res = await fetch(API_BASE_URL + "/orders",{
         headers:{
           "Authorization" : `bearer ${token}`,
           "Content-Type" : "application/json"
@@ -89,7 +90,7 @@ const postOrder = async()=>{
     customerId:customerId,
     items: itemsForBackend
   }
-  const res = await fetch("http://localhost:5000/orders",{
+  const res = await fetch(API_BASE_URL + "/orders",{
     method:"POST",
     headers:{
       "Authorization" : `bearer ${token}`,

@@ -10,6 +10,7 @@ import { useEffect } from "react"
 import { Spinner } from "@/components/ui/spinner"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom"
+import { API_BASE_URL } from "@/config"
 const Customerwidgets = () => {
 const navigate = useNavigate()
 const token = localStorage.getItem('token')
@@ -22,7 +23,7 @@ interface customers{
 useEffect(()=>{
 const fetchData  = async()=>{
 try {
-    const data = await fetch('http://localhost:5000/customer',{
+    const data = await fetch(API_BASE_URL + '/customer',{
          headers: {
                 "Authorization": `Bearer ${token}`, 
                 "Content-Type": "application/json"}

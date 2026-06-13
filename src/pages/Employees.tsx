@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import Adminroutes from "@/Adminroutes"
+import { API_BASE_URL } from "@/config"
 
 const Employees = () => {
   //states
@@ -44,7 +45,7 @@ const Employees = () => {
   //get employee
   const fetchEmployees = async () => {
     try {
-      const res = await fetch("http://localhost:5000/add-employee", { 
+      const res = await fetch(API_BASE_URL + "/add-employee", { 
         headers: {
           "Authorization": `bearer ${token}`,
           "Content-Type": "application/json"
@@ -71,7 +72,7 @@ const Employees = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/add-employee", {
+      const res = await fetch(API_BASE_URL + "/add-employee", {
         method: "POST",
         headers: {
           "Authorization": `bearer ${token}`,
@@ -101,7 +102,7 @@ const Employees = () => {
    
 
     try {
-      const res = await fetch(`http://localhost:5000/add-employee/${id}`, {
+      const res = await fetch(API_BASE_URL + `/add-employee/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `bearer ${token}`,

@@ -11,6 +11,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { Button } from "@/components/ui/button"
 
 import { useNavigate } from "react-router-dom"
+import { API_BASE_URL } from "@/config"
 
 function Orderwidgets() {
     const token = localStorage.getItem('token')
@@ -29,7 +30,7 @@ interface order{
     useEffect(()=>{
        const fetchData = async()=>{
         try {
-            const data = await fetch("http://localhost:5000/orders", {
+            const data = await fetch(API_BASE_URL + "/orders", {
             headers: {
                 "Authorization": `Bearer ${token}`, 
                 "Content-Type": "application/json"

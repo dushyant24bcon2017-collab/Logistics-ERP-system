@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import { API_BASE_URL } from "@/config";
 const AuthPage = () => {
     const [isLogin , setIsLogin] = useState(true)
     const [email,setEmail] = useState('')
@@ -25,8 +26,8 @@ const AuthPage = () => {
         e.preventDefault()
         try {
             const url =isLogin 
-        ? "http://localhost:5000/login" 
-        : "http://localhost:5000/signup"
+        ? API_BASE_URL + "/login" 
+        : API_BASE_URL + "/signup"
         const payload = isLogin ? 
         { email:email, password:password}:
         {

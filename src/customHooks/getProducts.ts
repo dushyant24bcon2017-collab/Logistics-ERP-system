@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "@/config";
 import { useState,useEffect } from "react"
 export const useFetchProducts = ()=>
 {const [product,setProduct] = useState<
@@ -12,7 +13,7 @@ const [loading,setLoading]= useState<boolean>()
   const token = localStorage.getItem('token')
  const getProducts = async ()=>{
       try{ 
-      const getResponse = await fetch('http://localhost:5000/products',{
+      const getResponse = await fetch(API_BASE_URL + '/products',{
         headers:{
           "Authorization": `bearer ${token}`,
                 "Content-Type" : 'application/json'

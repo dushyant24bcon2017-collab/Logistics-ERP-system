@@ -10,6 +10,7 @@ import {
 import { Spinner } from "@/components/ui/spinner"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '@/config'
 const Productswidgets = () => {
 interface product {
 id : string ;
@@ -24,7 +25,7 @@ useEffect(()=>{
 const fetchdata = async() =>{
     try {
         setLoading(true)
-        const data = await fetch('http://localhost:5000/products',{
+        const data = await fetch(API_BASE_URL + '/products',{
             headers:{
                 "Authorization": `bearer ${token}`,
                 "Content-Type" : 'application/json'

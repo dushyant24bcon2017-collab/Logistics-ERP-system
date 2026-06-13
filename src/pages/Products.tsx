@@ -20,6 +20,7 @@ import { Field, FieldGroup } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Adminormanagerroutes from "@/Adminormanagerroutes"
+import { API_BASE_URL } from "@/config"
 const Products = () => {
   //states
   const [product,setProduct] = useState([])
@@ -43,7 +44,7 @@ const [addForm, setaddForm] = useState({
   // GET API
     const getProducts = async ()=>{
       try{ 
-      const getResponse = await fetch('http://localhost:5000/products',{
+      const getResponse = await fetch(API_BASE_URL + '/products',{
         headers:{
           "Authorization": `bearer ${token}`,
                 "Content-Type" : 'application/json'
@@ -63,7 +64,7 @@ const [addForm, setaddForm] = useState({
 
     //POST API
     const addNewProduct = async ()=>{
-      const postResponse = await fetch('http://localhost:5000/products',
+      const postResponse = await fetch(API_BASE_URL + '/products',
        {  method:"POST",
           headers:{
           "Authorization": `bearer ${token}`,
@@ -79,7 +80,7 @@ const [addForm, setaddForm] = useState({
     }
     //PUT API
   const editProduct = async(product:Product)=>{
-    const res = await fetch(`http://localhost:5000/products/${product.id}`,{
+    const res = await fetch(API_BASE_URL + `/products/${product.id}`,{
       method:"PUT",
        headers:{
           "Authorization": `bearer ${token}`,
@@ -95,7 +96,7 @@ const [addForm, setaddForm] = useState({
   }
   //DELETE API 
   const deleteProduct= async(product:Product)=>{
-    const res = await fetch(`http://localhost:5000/products/${product.id}`,{
+    const res = await fetch(API_BASE_URL + `/products/${product.id}`,{
       method:"DELETE",
        headers:{
           "Authorization": `bearer ${token}`,

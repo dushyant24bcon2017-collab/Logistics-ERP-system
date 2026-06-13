@@ -15,6 +15,7 @@ import {
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
+import { API_BASE_URL } from "@/config"
     interface Product {
     id: string;
     name: string;
@@ -35,7 +36,7 @@ const Productpiechart = () => {
     useEffect(()=>{
         try {
             const fetchData = async()=>{
-                const response = await fetch('http://localhost:5000/products',{
+                const response = await fetch(API_BASE_URL + '/products',{
                     headers:{
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "application/json"
