@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Customers from "./pages/Customers";
 import Employees from "./pages/Employees";
+import { AuthProvider } from "./AuthContext";
 const App = () => {
 const router = createBrowserRouter([
   {
@@ -46,7 +47,10 @@ const router = createBrowserRouter([
   },
   
 ])
-  return <RouterProvider router={router}/>
+  return( <AuthProvider> 
+     <RouterProvider router={router}/>
+</AuthProvider>
+  )
 }
 
 export default App
